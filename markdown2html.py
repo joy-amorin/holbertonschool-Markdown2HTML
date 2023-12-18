@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Parse a Markdown file and turns into HTML
+"""Parse a Markdown file and turns into HTML
 """
 import sys
 import markdown2
