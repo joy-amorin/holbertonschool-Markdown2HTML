@@ -5,7 +5,9 @@ import sys
 import markdown2
 
 def convert_markdown_to_html(input_file, output_file):
-    """ function to convert markdown to html """
+    """ 
+    function to convert markdown to html 
+    """
 
     try:
         with open(input_file, 'r', encoding='utf-8') as md_file:
