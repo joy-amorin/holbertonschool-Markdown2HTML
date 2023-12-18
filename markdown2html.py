@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-""" Write a script markdown2html.py that takes an argument 2 
-strings:
-
-First argument is the name of the Markdown file
-Second argument is the output file name """
+""" convert markdown to html """
 import sys
 import markdown2
 
@@ -11,11 +7,9 @@ if __name__ == "__main__":
 
     def convert_markdown_to_html(input_file, output_file):
         """ function to convert markdown to html
-
         Parameters:
         input_file (str): The input Markdown file.
-        output_file (str): The output HTML file.
-        """
+        output_file (str): The output HTML file. """
 
         try:
             with open(input_file, 'r', encoding='utf-8') as md_file:
