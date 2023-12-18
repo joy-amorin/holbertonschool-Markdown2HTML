@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-"""convert morkdown to html"""
+""" convert markdown to html """
 import sys
 import markdown2
 
 if __name__ == "__main__":
 
     def convert_markdown_to_html(input_file, output_file):
-        """
-        function to convert markdown to html
+        """ function to convert markdown to html
 
         Parameters:
         input_file (str): The input Markdown file.
