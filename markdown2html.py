@@ -20,24 +20,35 @@ def convert_markdown_to_html(md_file, html_file):
 
     for line in md_content:
         if line.startswith("#"):
+            # Cerrar la lista si está abierta antes del encabezado
+            if in_list:
+                html_content += "</ul>\n"
+                in_list = False
+
             header_level = line.count("#")
             header_text = line.strip("#").strip()
 
             html_header = f"<h{header_level}>{header_text}</h{header_level}>"
             html_content += html_header + "\n"
 
-        if in_list:
-            html_content += "</ul>\n"
-            in_list = False
-        elif line.startswith("_"):
+        elif line.startswith("-"):
             if not in_list:
                 html_content += "<ul>\n"
                 in_list = True
-            list_item = line.split("-").split()
-            html_content = f"<li>{list_item}</li>"
+            list_items = line.lstrip("-").strip().split()
+            for item in list_items:
+                html_content += f"<li>{item}</li>\n"
 
         else:
+            # Cerrar la lista si no es una línea de encabezado o lista
+            if in_list:
+                html_content += "</ul>\n"
+                in_list = False
             html_content += line
+
+    # Cerrar la lista si está abierta al final del archivo
+    if in_list:
+        html_content += "</ul>\n"
 
     with open(html_file, 'w') as html_file:
         html_file.write(html_content)
